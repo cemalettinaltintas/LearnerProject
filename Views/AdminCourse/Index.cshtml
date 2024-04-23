@@ -1,0 +1,39 @@
+﻿@model List<LearnerProject.Models.Entities.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>Kurslar</h3>
+@{
+    int count = 0;
+}
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Resim</th>
+        <th>Kurs Adı</th>
+        <th>Açıklama</th>
+        <th>Fiyat</th>
+        <th>Kategori</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td><img src="@item.ImageUrl" style="height:50px;width:50px"/></td>
+            <td>@item.CategoryName</td>
+            <td>@(item.Description.Length>50? item.Description.Substring(0,50)+"...":item.Description)</td>
+            <td>@item.Price ₺</td>
+            <td>@item.Category.CategoryName</td>
+            <td>
+                <a href="/AdminCourse/DeleteCourse/@item.CourseId" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                <a href="/AdminCourse/UpdateCourse/@item.CourseId" class="btn btn-outline-info"><i class="fa fa-pen"></i></a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a href="/Category/AddCategory" class="btn btn-outline-primary"><i class="fa fa-save"></i> Kaydet</a>

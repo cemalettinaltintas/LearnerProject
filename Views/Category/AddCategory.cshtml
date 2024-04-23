@@ -1,0 +1,16 @@
+﻿@model LearnerProject.Models.Entities.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>AddCategory</h3>
+
+<form method="post">
+    <label>Kategori Adı</label>
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <label>Kategori Icon</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
+
