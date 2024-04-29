@@ -1,0 +1,21 @@
+﻿@model LearnerProject.Models.Entities.Banner
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h4>Banner</h4>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Banner İçeriği</th>
+        <th>Güncelle</th>
+    </tr>
+        <tr>
+            <td>1</td>
+            <td>@Model.Title</td>
+            <td>
+                <a href="/Banner/UpdateBanner/@Model.BannerId" class="btn btn-outline-info"><i class="fa fa-pen"></i></a>
+            </td>
+        </tr>
+</table>

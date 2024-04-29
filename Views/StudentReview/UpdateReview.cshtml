@@ -1,0 +1,24 @@
+﻿@model LearnerProject.Models.Entities.Review
+@{
+    ViewBag.Title = "UpdateReview";
+    Layout = "~/Views/StudentLayout/Index.cshtml";
+}
+
+<h3>Kurs Değerlendirme Güncelle</h3>
+
+<form method="post">
+    @Html.HiddenFor(x => x.ReviewId)
+    <label>Kurs Adı</label>
+    @Html.DropDownListFor(x => x.CourseId, (List<SelectListItem>)ViewBag.courses, "Kurs Seçin", new { @class = "form-control" })
+    <br />
+
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Comment,5,30, new { @class = "form-control" })
+    <br />
+
+    <label>Değerlendirme Puanı</label>
+    @Html.TextBoxFor(x => x.ReviewValue, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-outline-primary"><i class="fa fa-pen"></i> Güncelle</button>
+</form>

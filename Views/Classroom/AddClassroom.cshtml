@@ -1,0 +1,15 @@
+﻿@model LearnerProject.Models.Entities.Classroom
+@{
+    ViewBag.Title = "AddClassroom";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h4>Derslik Ekleme Sayfası</h4>
+<br />
+<form method="post">
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control mb-3", @placeholder = "Sınıf" })
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control mb-3", @placeholder = "Ikon" })
+    @Html.TextAreaFor(x => x.Description, 5, 30, new { @class = "form-control mb-3", @placeholder = "Yorum" })
+    <button class="btn btn-outline-success"><i class="fas fa-save"> Kaydet</i></button>
+</form>

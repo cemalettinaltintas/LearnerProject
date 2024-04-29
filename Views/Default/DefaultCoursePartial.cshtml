@@ -15,7 +15,10 @@
                         <a href="#"><img src="@item.ImageUrl" alt="Image" class="img-fluid"></a>
                         <div class="custom-media-body">
                             <div class="d-flex justify-content-between pb-3">
-                                <div class="text-primary"><span class="uil uil-book-open"></span> <span>43 lesson</span></div>
+                                @{ 
+                                    var count = item.CourseVideos.Count();
+                                }
+                                <div class="text-primary"><span class="uil uil-book-open"></span> <span>@count ders</span></div>
                                 <div class="review">
                                     <span>
                                         @{

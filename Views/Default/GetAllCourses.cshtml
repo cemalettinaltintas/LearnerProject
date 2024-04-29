@@ -1,0 +1,75 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList<LearnerProject.Models.Entities.Course>
+@{
+    ViewBag.Title = "GetAllCourses";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<div class="untree_co-hero overlay" style="background-image: url('/Templates/learner-1.0.0/images/img-school-1-min.jpg');">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12">
+                <div class="row justify-content-center ">
+                    <div class="col-lg-6 text-center ">
+                        <h1 class="mb-4 heading text-white" data-aos="fade-up" data-aos-delay="100">Kurslarımız</h1>
+                        <div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
+                            <p>Alanında uzman eğitmenlerimiz tarafından hazırlanan tüm kurslarımızı inceleyebilirsiniz</p>
+                        </div>
+                        <p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#tumKurslar" class="btn btn-secondary">Tüm Kurslar</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+</div> <!-- /.untree_co-hero -->
+
+<div class="untree_co-section bg-light" id="tumKurslar">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4">
+                    <div class="custom-media">
+                        <a href="#"><img src="@item.ImageUrl" alt="Image" class="img-fluid"></a>
+                        <div class="custom-media-body">
+                            <div class="d-flex justify-content-between pb-3">
+                                @{
+                                    var count = item.CourseVideos.Count();
+                                }
+                                <div class="text-primary"><span class="uil uil-book-open"></span> <span>@count ders</span></div>
+                                <div class="review">
+                                    <span>
+                                        @{
+                                            var value = item.Reviews.FirstOrDefault(x => x.CourseId == item.CourseId);
+
+                                            if (value == null)
+                                            {
+                                                <small>Henüz Puanlanmadı</small>
+                                            }
+                                            else
+                                            {
+                                                <span class="icon-star"></span>
+                                                @item.Reviews.Where(x => x.CourseId == item.CourseId).Average(x => x.ReviewValue).ToString("0.00")
+
+                                            }
+                                        }
+                                    </span>
+                                </div>
+                            </div>
+                            <h3>@item.CategoryName</h3>
+                            <p class="mb-4">@item.Description</p>
+                            <div class="border-top d-flex justify-content-between pt-3 mt-3 align-items-center">
+                                <div><span class="price">@item.Price ₺</span></div>
+                                <div><a href="/Default/CourseDetail/@item.CourseId">Kurs Detayı</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("GetAllCourses", new { sayfa }), new PagedListRenderOptions() { LiElementClasses = new List<string> { "btn bg-white" } })
+    </div>
+</div>

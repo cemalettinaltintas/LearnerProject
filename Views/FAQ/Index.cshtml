@@ -1,0 +1,37 @@
+﻿@model List<LearnerProject.Models.Entities.FAQ>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<br />
+<h4>Sık Sorulan Sorular</h4>
+<br />
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Soru</th>
+        <th>Cevap</th>
+        <th>Resim Url</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Question</td>
+            <td>@item.Answer</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Status</td>
+            <td>
+                <a href="/FAQ/DeleteFAQ/@item.FAQId" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                <a href="/FAQ/UpdateFAQ/@item.FAQId" class="btn btn-outline-info"><i class="fa fa-pen"></i></a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a href="/FAQ/AddFAQ/" class="btn btn-outline-primary">Yeni Derslik Ekle</a>

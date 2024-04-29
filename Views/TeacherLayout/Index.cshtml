@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Eğitmen Paneli</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,7 +49,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Adil Kurs</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -62,8 +62,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="/TeacherCourse/Index" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Kurslarım</a>
+                    <a href="/TeacherCourse/Index" class="nav-item nav-link"><i class="	fas fa-list-ol me-2"></i>Kurslarım</a>
+                    <a href="/TeacherCourseVideo/Index" class="nav-item nav-link"><i class="fas fa-video me-2"></i>Videolarım</a>
+                    <a href="/TeacherReview/Index" class="nav-item nav-link"><i class="fas fa-video me-2"></i>Puanlarım</a>
                 </div>
             </nav>
         </div>
@@ -151,9 +152,9 @@
                             <span class="d-none d-lg-inline-flex">@Session["teacherName"]</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="#" class="dropdown-item">Ayarlar</a>
+                            <a href="/Default/Index" class="dropdown-item">Siteye Git</a>
+                            <a href="/TeacherLogin/Logout/" class="dropdown-item">Çıkış Yap</a>
                         </div>
                     </div>
                 </div>

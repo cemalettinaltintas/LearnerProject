@@ -1,0 +1,30 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<LearnerProject.Models.Entities.CourseRegister>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/StudentLayout/Index.cshtml";
+    var count = 0;
+}
+
+<h3>Kayıt Olduğum Kurslar</h3>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Kurs Adı</th>
+            <th>Kurs İçeriği</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.Course.CategoryName</td>
+            <td><a href="/StudentCourse/MyCourseList/@item.CourseId" class="btn btn-outline-info">Kurs İçeriği</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions() { LiElementClasses = new List<string> { "btn" } })

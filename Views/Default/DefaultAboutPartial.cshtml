@@ -1,0 +1,43 @@
+﻿@model LearnerProject.Models.Entities.About
+<div class="untree_co-section">
+    <div class="container">
+        <div class="row justify-content-between" id="hakkimizda">
+            <div class="col-lg-5 mb-5">
+                <h2 class="line-bottom mb-4" data-aos="fade-up" data-aos-delay="0">@Model.Title</h2>
+                <p data-aos="fade-up" data-aos-delay="100">@Model.Description</p>
+                <ul class="list-unstyled ul-check mb-5 primary" data-aos="fade-up" data-aos-delay="200">
+                    <li>@Model.Item1</li>
+                    <li>@Model.Item2</li>
+                    <li>@Model.Item3</li>
+                </ul>
+
+                <div class="row count-numbers mb-5">
+                    <div class="col-4 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <span class="counter d-block"><span data-number="@ViewBag.studentCount">0</span><span>+</span></span>
+                        <span class="caption-2">Öğrenci</span>
+                    </div>
+                    <div class="col-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <span class="counter d-block"><span data-number="@ViewBag.teacherCount">0</span><span></span></span>
+                        <span class="caption-2">Eğitmen</span>
+                    </div>
+                    <div class="col-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <span class="counter d-block"><span data-number="4">0</span><span></span></span>
+                        <span class="caption-2">Ödül</span>
+                    </div>
+                </div>
+
+                <p data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="btn btn-primary mr-1">Tavsiye</a>
+                    <a href="#" class="btn btn-outline-primary">Daha fazla</a>
+                </p>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-1"></div>
+                <a href="https://vimeo.com/342333493" data-fancybox class="video-wrap">
+                    <span class="play-wrap"><span class="icon-play"></span></span>
+                    <img src="/Templates/learner-1.0.0/images/img-school-4-min.jpg" alt="Image" class="img-fluid rounded">
+                </a>
+            </div>
+        </div>
+    </div>
+</div> <!-- /.untree_co-section -->

@@ -1,5 +1,6 @@
 ﻿using LearnerProject.Models;
 using LearnerProject.Models.Entities;
+using LearnerProject.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace LearnerProject.Controllers
 {
+    [SessionTimeOut]
     public class TeacherCourseController : Controller
     {
         LearnerContext context = new LearnerContext();

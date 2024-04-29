@@ -1,0 +1,35 @@
+﻿@model List<LearnerProject.Models.Entities.Review>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+<br />
+<h4>Kurs Değerlendirmeleri</h4>
+<br />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Öğrenci</th>
+            <th>Kurs Adı</th>
+            <th>Açıklama</th>
+            <th>Değerlendirme Puanı</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <th>@item.Student.NameSurname</th>
+            <td>@item.Course.CategoryName</td>
+            <td>@item.Comment</td>
+            <td>@item.ReviewValue</td>
+            <td>
+                <a href="/Review/DeleteReview/@item.ReviewId" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+</table>

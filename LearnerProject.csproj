@@ -53,6 +53,12 @@
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -130,13 +136,28 @@
     <Compile Include="Controllers\AdminCourseController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
+    <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ClassroomController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CourseRegisterController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\StudentCourseController.cs" />
+    <Compile Include="Controllers\StudentLayoutController.cs" />
+    <Compile Include="Controllers\StudentLoginController.cs" />
+    <Compile Include="Controllers\StudentRegisterController.cs" />
+    <Compile Include="Controllers\StudentReviewController.cs" />
     <Compile Include="Controllers\TeacherCourseController.cs" />
+    <Compile Include="Controllers\TeacherCourseVideoController.cs" />
     <Compile Include="Controllers\TeacherLayoutController.cs" />
     <Compile Include="Controllers\TeacherLoginController.cs" />
+    <Compile Include="Controllers\TeacherReviewController.cs" />
+    <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Controllers\UILayoutController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,9 +178,18 @@
     <Compile Include="Migrations\202404220816404_mig_contact_and_message_table_added.Designer.cs">
       <DependentUpon>202404220816404_mig_contact_and_message_table_added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404290820478_mig_admin_table_add.cs" />
+    <Compile Include="Migrations\202404290820478_mig_admin_table_add.Designer.cs">
+      <DependentUpon>202404290820478_mig_admin_table_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202404291558436_mig_admin_add_nameSurname_Column.cs" />
+    <Compile Include="Migrations\202404291558436_mig_admin_add_nameSurname_Column.Designer.cs">
+      <DependentUpon>202404291558436_mig_admin_add_nameSurname_Column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\LearnerContext.cs" />
     <Compile Include="Models\Entities\About.cs" />
+    <Compile Include="Models\Entities\Admin.cs" />
     <Compile Include="Models\Entities\Banner.cs" />
     <Compile Include="Models\Entities\Category.cs" />
     <Compile Include="Models\Entities\Classroom.cs" />
@@ -174,6 +204,7 @@
     <Compile Include="Models\Entities\Teacher.cs" />
     <Compile Include="Models\Entities\Testimonial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\SessionTimeOutAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -192,6 +223,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -291,6 +323,7 @@
     <Content Include="Templates\learner-1.0.0\images\1x\asset-3.png" />
     <Content Include="Templates\learner-1.0.0\images\about_1.jpg" />
     <Content Include="Templates\learner-1.0.0\images\about_2.jpg" />
+    <Content Include="Templates\learner-1.0.0\images\eg.jpg" />
     <Content Include="Templates\learner-1.0.0\images\gal_1.jpg" />
     <Content Include="Templates\learner-1.0.0\images\gal_2.jpg" />
     <Content Include="Templates\learner-1.0.0\images\gal_3.jpg" />
@@ -316,6 +349,7 @@
     <Content Include="Templates\learner-1.0.0\images\img_7.jpg" />
     <Content Include="Templates\learner-1.0.0\images\img_8.jpg" />
     <Content Include="Templates\learner-1.0.0\images\img_9.jpg" />
+    <Content Include="Templates\learner-1.0.0\images\my.jpg" />
     <Content Include="Templates\learner-1.0.0\images\person_1.jpg" />
     <Content Include="Templates\learner-1.0.0\images\person_2.jpg" />
     <Content Include="Templates\learner-1.0.0\images\person_3.jpg" />
@@ -324,6 +358,7 @@
     <Content Include="Templates\learner-1.0.0\images\staff_2.jpg" />
     <Content Include="Templates\learner-1.0.0\images\staff_3.jpg" />
     <Content Include="Templates\learner-1.0.0\images\teacher-min.jpg" />
+    <Content Include="Templates\learner-1.0.0\images\vu.jpg" />
     <Content Include="Templates\learner-1.0.0\index.html" />
     <Content Include="Templates\learner-1.0.0\js\aos.js" />
     <Content Include="Templates\learner-1.0.0\js\bootstrap-datepicker.min.js" />
@@ -502,7 +537,6 @@
     <Content Include="Templates\learner-1.0.0\scss\_site-navbar.scss" />
     <Content Include="Templates\learner-1.0.0\scss\_variables.scss" />
     <Content Include="Views\UILayout\Index.cshtml" />
-    <Content Include="Views\UILayout\Test.cshtml" />
     <Content Include="Views\AdminCourse\Index.cshtml" />
     <Content Include="Views\AdminCourse\AddCourse.cshtml" />
     <Content Include="Views\AdminCourse\UpdateCourse.cshtml" />
@@ -518,9 +552,46 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\ContactInfo.cshtml" />
     <Content Include="Views\Contact\SendMessage.cshtml" />
+    <Content Include="Views\StudentLayout\Index.cshtml" />
+    <Content Include="Views\StudentCourse\Index.cshtml" />
+    <Content Include="Views\CourseRegister\Index.cshtml" />
+    <Content Include="Views\StudentCourse\MyCourseList.cshtml" />
+    <Content Include="Views\StudentRegister\Index.cshtml" />
+    <Content Include="Views\Default\DefaultCategoryPartial.cshtml" />
+    <Content Include="Views\Default\DefaultClassroomPartial.cshtml" />
+    <Content Include="Views\Default\GetAllCourses.cshtml" />
+    <Content Include="Views\Default\DefaultTestimonialPartial.cshtml" />
+    <Content Include="Views\Default\DefaultAboutPartial.cshtml" />
+    <Content Include="Views\Default\DefaultBannerPartial.cshtml" />
+    <Content Include="Views\Default\DefaultContact.cshtml" />
+    <Content Include="Views\Default\DefaultSSS.cshtml" />
+    <Content Include="Views\StudentReview\Index.cshtml" />
+    <Content Include="Views\StudentReview\AddStudentReview.cshtml" />
+    <Content Include="Views\StudentReview\UpdateReview.cshtml" />
+    <Content Include="Views\TeacherCourseVideo\Index.cshtml" />
+    <Content Include="Views\TeacherReview\Index.cshtml" />
+    <Content Include="Views\AdminLogin\Index.cshtml" />
+    <Content Include="Views\Banner\Index.cshtml" />
+    <Content Include="Views\Banner\UpdateBanner.cshtml" />
+    <Content Include="Views\Review\Index.cshtml" />
+    <Content Include="Views\Testimonial\Index.cshtml" />
+    <Content Include="Views\Testimonial\UpdateTestimonial.cshtml" />
+    <Content Include="Views\Testimonial\AddTestimonial.cshtml" />
+    <Content Include="Views\Classroom\AddClassroom.cshtml" />
+    <Content Include="Views\Classroom\Index.cshtml" />
+    <Content Include="Views\Classroom\UpdateClassroom.cshtml" />
+    <Content Include="Views\FAQ\Index.cshtml" />
+    <Content Include="Views\FAQ\AddFAQ.cshtml" />
+    <Content Include="Views\FAQ\UpdateFAQ.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\AddStudent.cshtml" />
+    <Content Include="Views\Student\UpdateStudent.cshtml" />
+    <Content Include="Views\StudentLogin\Index.cshtml" />
+    <Content Include="Views\CourseRegister\RegisteredStudentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\Testimonial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -561,6 +632,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202404220816404_mig_contact_and_message_table_added.resx">
       <DependentUpon>202404220816404_mig_contact_and_message_table_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404290820478_mig_admin_table_add.resx">
+      <DependentUpon>202404290820478_mig_admin_table_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404291558436_mig_admin_add_nameSurname_Column.resx">
+      <DependentUpon>202404291558436_mig_admin_add_nameSurname_Column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

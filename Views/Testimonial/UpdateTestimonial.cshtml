@@ -1,0 +1,27 @@
+﻿@model LearnerProject.Models.Entities.Testimonial
+@{
+    ViewBag.Title = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<br />
+<h4>Referans Güncelleme Sayfası</h4>
+<br />
+<form method="post" enctype = "multipart/form-data">
+    @Html.HiddenFor(x => x.TestimonialId)
+    <label>Adı Soyadı</label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+
+    @*<label>Resim</label>
+        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })*@
+
+    <label>Resim Url</label>
+    <input type="file" name="ImageUrl" value="@Model.ImageUrl" />
+    <br />
+
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Comment, 5, 30, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Güncelle</button>
+</form>

@@ -1,0 +1,24 @@
+﻿@model LearnerProject.Models.Entities.FAQ
+@{
+    ViewBag.Title = "UpdateFAQ";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h4>Soru Güncelleme Sayfası</h4>
+<br />
+<form method="post">
+    @Html.HiddenFor(x=>x.FAQId)
+    @Html.TextBoxFor(x => x.Question, new { @class = "form-control mb-3", @placeholder = "Soru" })
+
+    @Html.TextBoxFor(x => x.Answer, new { @class = "form-control mb-3", @placeholder = "Cevap" })
+
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control mb-3", @placeholder = "Resim Url" })
+
+    <label>Aktif</label>
+    @Html.RadioButtonFor(x => x.Status, "True", new { @class = "mb-3" })
+    <label>Pasif</label>
+    @Html.RadioButtonFor(x => x.Status, "False", new { @class = "mb-3" })
+    <br />
+    <button class="btn btn-outline-success"><i class="fas fa-edit">Güncelle</i></button>
+</form>
